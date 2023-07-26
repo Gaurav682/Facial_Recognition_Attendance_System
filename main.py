@@ -4,7 +4,7 @@ import numpy as np
 import csv
 from datetime import datetime
 
-video_capture = cv2.VideoCapture(1)
+video_capture = cv2.VideoCapture(1) #here try with 0 if 1 doesn't work, based on camera in use 
 
 # Load Known Faces
 person_image = face_recognition.load_image_file("CompleteAddress/person.jpg")
