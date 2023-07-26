@@ -4,7 +4,7 @@ that instantly identifies and records the expected people's check-in time
 and converts them into a CSV file with that day's date, providing up-to-the-minute data on attendance patterns.
 
 
-Modules/Packages used --->
+Libraries used --->
 
 face recognition, 
 opencv,
