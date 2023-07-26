@@ -7,24 +7,21 @@ from datetime import datetime
 video_capture = cv2.VideoCapture(1)
 
 # Load Known Faces
+person_image = face_recognition.load_image_file("CompleteAddress/person.jpg")
+person_encoding = face_recognition.face_encodings(person_image)[0]      # you can add as many record as you want
 
-gaurav_image = face_recognition.load_image_file("faces/gaurav.jpg")
-gaurav_encoding = face_recognition.face_encodings(gaurav_image)[0]
 
-divya_image = face_recognition.load_image_file("faces/divya.jpg")
-divya_encoding = face_recognition.face_encodings(divya_image)[0]
+known_face_encodings = [person_encoding]
+known_face_names = ["Person_Name"]
 
-known_face_encodings = [gaurav_encoding, divya_encoding]
-known_face_names = ["Gaurav", "Divya"]
 
-# list of expected students
+# list of expected students/people
 students = known_face_names.copy()
 
 face_locations = []
 face_encodings = []
 
-# get the current date and time
-
+# getting the current date and time
 now = datetime.now()
 current_date = now.strftime("%Y-%m-%d")
 
@@ -48,7 +45,7 @@ while True:
         if (matches[best_match_index]):
             name = known_face_names[best_match_index]
 
-        # Add the test if a person is present
+        # Add the text if a person is present
         if name in known_face_names:
             font = cv2.FONT_HERSHEY_SIMPLEX
             bottomLeftCornerOfText = (10, 100)
